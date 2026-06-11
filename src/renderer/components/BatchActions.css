@@ -1,0 +1,60 @@
+.batch-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.batch-mode-btn {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.batch-mode-btn:hover {
+  background: var(--bg-hover);
+}
+
+.batch-mode-btn.active {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.batch-actions {
+  background: var(--bg-secondary);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.batch-actions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.batch-count {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.batch-actions-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.batch-actions-buttons .btn {
+  width: 100%;
+  min-width: unset;
+  padding: 8px 10px;
+  font-size: 13px;
+}

@@ -1,0 +1,174 @@
+.terminal-log {
+  margin-top: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.terminal-log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-log-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.copy-status {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.copy-status.success {
+  color: var(--success-color);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.copy-status.error {
+  color: var(--danger-color);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.terminal-log-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-log-search {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border-color);
+  gap: 8px;
+}
+
+.search-icon {
+  color: var(--text-secondary);
+}
+
+.terminal-log-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+}
+
+.terminal-log-content {
+  padding: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.terminal-log-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.log-highlight {
+  background: var(--highlight-color);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.log-error {
+  color: #f44336;
+}
+
+.log-warning {
+  color: #ff9800;
+}
+
+.log-success {
+  color: #4caf50;
+}
+
+.log-info {
+  color: #2196f3;
+}
+
+.log-timestamp {
+  color: var(--text-secondary);
+}
+
+.log-url {
+  color: #2196f3;
+  text-decoration: underline;
+}
+
+/* 命令输入区域 */
+.terminal-input-area {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+  gap: 12px;
+  background: var(--bg-secondary);
+}
+
+.terminal-prompt {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--success-color);
+  user-select: none;
+}
+
+.terminal-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.terminal-input:focus {
+  border-color: var(--primary-color);
+}
+
+.terminal-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.terminal-send-btn {
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.terminal-send-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.terminal-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

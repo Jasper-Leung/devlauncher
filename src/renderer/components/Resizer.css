@@ -1,0 +1,55 @@
+/**
+ * 侧边栏宽度调节手柄样式
+ */
+
+.resizer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: ew-resize;
+  background: transparent;
+  transition: background 0.2s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resizer:hover,
+.resizer.dragging {
+  background: var(--primary-color, #4a9eff);
+}
+
+.resizer-handle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.resizer:hover .resizer-handle,
+.resizer.dragging .resizer-handle {
+  opacity: 1;
+}
+
+.resizer-line {
+  width: 2px;
+  height: 40px;
+  background: var(--primary-color, #4a9eff);
+  border-radius: 1px;
+}
+
+/* 拖拽时的光标样式 */
+.resizer.dragging {
+  cursor: ew-resize;
+}
+
+/* 防止拖拽时选中文本 */
+.resizer.dragging * {
+  user-select: none;
+}

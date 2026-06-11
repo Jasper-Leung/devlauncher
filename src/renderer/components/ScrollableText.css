@@ -1,0 +1,17 @@
+.project-list-item-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  font-size: 12px;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  text-overflow: clip;
+}
+
+.project-list-item-name::-webkit-scrollbar {
+  display: none;
+}

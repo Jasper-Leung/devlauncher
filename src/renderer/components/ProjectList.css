@@ -1,0 +1,138 @@
+.project-list {
+  list-style: none;
+  padding: 0 8px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: grid;
+  /* 响应式布局：当容器宽度小于500px时自动切换为单列 */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 4px;
+}
+
+/* 当侧边栏宽度小于500px时，切换为单列布局 */
+@container sidebar (max-width: 500px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-list.list-view {
+  grid-template-columns: 1fr;
+}
+
+.project-list-item {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.project-list-item:hover {
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--card-shadow);
+}
+
+.project-list-item.active {
+  border-color: var(--primary-color);
+  background: var(--bg-active);
+}
+
+.project-list-item.selected {
+  border-color: var(--primary-color);
+}
+
+.project-list-item.batch-mode {
+  cursor: default;
+}
+
+.project-list-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.checkbox {
+  cursor: pointer;
+  user-select: none;
+  min-width: 20px;
+  font-size: 14px;
+}
+
+.project-list-item-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  font-size: 12px;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  text-overflow: clip;
+}
+
+.project-list-item-name::-webkit-scrollbar {
+  display: none;
+}
+
+.project-list-item-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+  min-width: fit-content;
+}
+
+.project-list-item:hover .project-list-item-actions {
+  opacity: 1;
+}
+
+.project-list-item-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  justify-content: space-between;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.running {
+  background: var(--success-color);
+}
+
+.status-dot.stopped {
+  background: var(--text-secondary);
+}
+
+.last-launched {
+  flex: 1;
+  min-width: 0;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-count {
+  color: var(--primary-color);
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-left: auto;
+}

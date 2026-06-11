@@ -1,0 +1,257 @@
+/**
+ * 项目侧边栏样式
+ * P2 优化：从主样式文件中拆分出来
+ */
+
+.sidebar {
+  /* 宽度和最小宽度现在通过内联样式设置 */
+  background-color: var(--bg-secondary, #2a2a2a);
+  border-right: 1px solid var(--border-color, #3a3a3a);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  /* 启用容器查询，让子元素可以根据侧边栏宽度调整布局 */
+  container-type: inline-size;
+  container-name: sidebar;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color, #3a3a3a);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary, #ffffff);
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-top-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #3a3a3a);
+}
+
+.add-project-btn,
+.batch-import-btn,
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-project-btn {
+  background-color: var(--primary-color, #4a9eff);
+  color: white;
+}
+
+.add-project-btn:hover {
+  background-color: var(--primary-hover, #3a8eef);
+}
+
+.batch-import-btn {
+  background-color: var(--bg-tertiary, #3a3a3a);
+  color: var(--text-primary, #ffffff);
+}
+
+.batch-import-btn:hover {
+  background-color: var(--bg-hover, #4a4a4a);
+}
+
+.view-toggle-btn {
+  background-color: var(--bg-tertiary, #3a3a3a);
+  color: var(--text-secondary, #a0a0a0);
+}
+
+.view-toggle-btn:hover {
+  background-color: var(--bg-hover, #4a4a4a);
+  color: var(--text-primary, #ffffff);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #3a3a3a);
+}
+
+.search-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.search-box input {
+  flex: 1;
+  background-color: var(--bg-tertiary, #1a1a1a);
+  border: 1px solid var(--border-color, #3a3a3a);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--text-primary, #ffffff);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--primary-color, #4a9eff);
+}
+
+.search-box input::placeholder {
+  color: var(--text-secondary, #666666);
+}
+
+.group-filters {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #3a3a3a);
+}
+
+.group-filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary, #a0a0a0);
+}
+
+.group-filters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.group-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--text-primary, #ffffff);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.group-filter-btn:hover {
+  background-color: var(--bg-hover, #3a3a3a);
+}
+
+.group-filter-btn.active {
+  background-color: var(--primary-color, #4a9eff);
+  color: white;
+}
+
+.tag-filters {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color, #3a3a3a);
+}
+
+.tag-filters-header {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary, #a0a0a0);
+  margin-bottom: 8px;
+}
+
+.tag-filters-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-filter-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border-color, #3a3a3a);
+  border-radius: 12px;
+  background-color: transparent;
+  color: var(--text-secondary, #a0a0a0);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-filter-btn:hover {
+  border-color: var(--primary-color, #4a9eff);
+  color: var(--text-primary, #ffffff);
+}
+
+.tag-filter-btn.active {
+  background-color: var(--primary-color, #4a9eff);
+  border-color: var(--primary-color, #4a9eff);
+  color: white;
+}
+
+/* 排除标签过滤器 */
+.tag-exclude-filters {
+  border-top: 1px solid var(--border-color, #3a3a3a);
+  padding-top: 12px;
+}
+
+.tag-exclude-filters .tag-filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag-count {
+  font-size: 11px;
+  color: var(--text-secondary, #a0a0a0);
+  font-weight: 400;
+}
+
+.tag-filter-btn.excluded {
+  opacity: 0.7;
+}
+
+.tag-filter-btn.excluded:hover {
+  opacity: 1;
+}
+
+.tag-filter-btn.excluded.active {
+  background-color: var(--danger-color, #ef4444);
+  border-color: var(--danger-color, #ef4444);
+  color: white;
+  opacity: 1;
+}
+
+/* 滚动条样式 */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, #4a4a4a);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover, #5a5a5a);
+}

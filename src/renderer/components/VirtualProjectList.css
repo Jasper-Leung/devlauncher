@@ -1,0 +1,233 @@
+/**
+ * 虚拟滚动项目列表样式
+ * 复用原有的项目列表样式，添加虚拟滚动相关样式
+ */
+
+.project-list-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  /* 启用容器查询，根据容器宽度调整布局 */
+  container-type: inline-size;
+}
+
+.project-list-container.virtual-scroll {
+  /* 启用硬件加速 */
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.project-list {
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  /* 响应式布局：当容器宽度小于500px时自动切换为单列 */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 4px;
+}
+
+/* 当侧边栏宽度小于500px时，切换为单列布局 */
+@container sidebar (max-width: 500px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 列表视图时禁用网格布局 */
+.project-list-container.list-view .project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--bg-secondary, #2a2a2a);
+  border: 1px solid var(--border-color, #3a3a3a);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.project-list-item:hover {
+  background-color: var(--bg-hover, #3a3a3a);
+  border-color: var(--accent-color, #4a9eff);
+}
+
+.project-list-item.active {
+  background-color: var(--bg-active, #3a3a5a);
+  border-color: var(--primary-color, #4a9eff);
+  box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.3);
+}
+
+.project-list-item.selected {
+  background-color: var(--bg-selected, #3a5a3a);
+  border-color: var(--success-color, #4a9e6a);
+}
+
+.project-list-item.batch-mode {
+  padding-left: 36px;
+}
+
+.project-list-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.project-list-item-name {
+  flex: 1;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-overflow: clip;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-list-item-name::-webkit-scrollbar {
+  display: none;
+}
+
+.project-list-item-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+  min-width: fit-content;
+}
+
+.project-list-item:hover .project-list-item-actions {
+  opacity: 1;
+}
+
+.project-list-item-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--text-secondary, #a0a0a0);
+  margin-top: 6px;
+  justify-content: space-between;
+}
+
+.checkbox {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.running {
+  background-color: var(--success-color, #4a9e6a);
+  box-shadow: 0 0 6px var(--success-color, #4a9e6a);
+  animation: pulse 2s infinite;
+}
+
+.status-dot.stopped {
+  background-color: var(--text-secondary, #666666);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.last-launched {
+  font-size: 10px;
+  flex: 1;
+  min-width: 0;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-count {
+  font-size: 10px;
+  padding: 2px 6px;
+  background-color: var(--bg-tertiary, #1a1a1a);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-left: auto;
+  color: var(--primary-color, #4a9eff);
+  font-weight: 500;
+}
+
+/* 列表视图样式 */
+.project-list-container.list-view .project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 网格视图下不使用绝对定位的项目项 */
+.project-list-container:not(.list-view) .project-list-item {
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
+  top: auto !important;
+}
+
+.project-list-container.list-view .project-list-item {
+  height: 60px;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.project-list-container.list-view .project-list-item-header {
+  flex: 1;
+}
+
+.project-list-container.list-view .project-list-item-footer {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* 滚动条样式 */
+.project-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-list-container::-webkit-scrollbar-track {
+  background: var(--bg-tertiary, #1a1a1a);
+  border-radius: 4px;
+}
+
+.project-list-container::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, #4a4a4a);
+  border-radius: 4px;
+}
+
+.project-list-container::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover, #5a5a5a);
+}

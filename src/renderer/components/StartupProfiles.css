@@ -1,0 +1,93 @@
+.startup-profiles {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.startup-profiles-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.startup-profiles-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.startup-profile-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s;
+}
+
+.startup-profile-item:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--card-shadow);
+}
+
+.startup-profile-item.active {
+  border-color: var(--success-color);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.profile-icon {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.profile-name {
+  flex: 1;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.profile-type {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-type-frontend {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.profile-type-backend {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+.profile-type-docker {
+  background: rgba(6, 182, 212, 0.15);
+  color: #0891b2;
+}
+
+.no-profiles {
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.no-profiles p {
+  margin: 0;
+  font-size: 14px;
+}

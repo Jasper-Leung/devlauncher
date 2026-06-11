@@ -1,0 +1,70 @@
+.language-switcher {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.language-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.language-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.language-flag {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.language-code {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+[data-theme='light'] .language-btn {
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+}
+
+[data-theme='light'] .language-btn:hover {
+  background: #e8e8e8;
+}
+
+[data-theme='light'] .language-btn.active {
+  background: var(--accent-color, #4a9eff);
+  border-color: var(--accent-color, #4a9eff);
+}
+
+[data-theme='dark'] .language-btn {
+  background: #2a2a2a;
+  border-color: #3a3a3a;
+}
+
+[data-theme='dark'] .language-btn:hover {
+  background: #333333;
+}
+
+[data-theme='dark'] .language-btn.active {
+  background: var(--accent-color, #4a9eff);
+  border-color: var(--accent-color, #4a9eff);
+}

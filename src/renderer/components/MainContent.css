@@ -1,0 +1,220 @@
+/**
+ * 主内容区域样式
+ * P2 优化：从主样式文件中拆分出来
+ */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bg-primary, #1a1a1a);
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary, #ffffff);
+  margin: 0 0 12px 0;
+}
+
+.empty-state-description {
+  font-size: 16px;
+  color: var(--text-secondary, #a0a0a0);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* 项目卡片 */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.project-card-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card-title h3 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary, #ffffff);
+  word-break: break-word;
+}
+
+.project-card-path {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary, #a0a0a0);
+  word-break: break-all;
+}
+
+.project-card-description {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: var(--text-secondary, #a0a0a0);
+  line-height: 1.5;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: var(--bg-tertiary, #2a2a2a);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-primary, #ffffff);
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.running {
+  background-color: var(--success-color, #4a9e6a);
+  box-shadow: 0 0 6px var(--success-color, #4a9e6a);
+  animation: pulse 2s infinite;
+}
+
+.status-dot.stopped {
+  background-color: var(--text-secondary, #666666);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: var(--bg-tertiary, #2a2a2a);
+  border: 1px solid var(--border-color, #3a3a3a);
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--text-secondary, #a0a0a0);
+}
+
+/* 操作按钮 */
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color, #4a9eff);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover, #3a8eef);
+}
+
+.btn-secondary {
+  background-color: var(--bg-tertiary, #2a2a2a);
+  color: var(--text-primary, #ffffff);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-hover, #3a3a3a);
+}
+
+/* 自定义命令 */
+.custom-commands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px;
+  background-color: var(--bg-secondary, #2a2a2a);
+  border-radius: 8px;
+}
+
+.custom-command-btn {
+  padding: 8px 16px;
+  background-color: var(--bg-tertiary, #1a1a1a);
+  border: 1px solid var(--border-color, #3a3a3a);
+  border-radius: 6px;
+  color: var(--text-primary, #ffffff);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.custom-command-btn:hover {
+  border-color: var(--primary-color, #4a9eff);
+  background-color: var(--bg-hover, #3a3a3a);
+}
+
+/* 滚动条样式 */
+.project-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-card::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, #4a4a4a);
+  border-radius: 4px;
+}
+
+.project-card::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover, #5a5a5a);
+}
