@@ -60,7 +60,7 @@
     }
   },
   "dependencies": {
-    "electron": "^40.0.0",
+    "electron": "^40.10.3",
     "i18next": "^25.8.4",
     "node-pty": "^1.1.0",
     "react": "^19.2.3",
