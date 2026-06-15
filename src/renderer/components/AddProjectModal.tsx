@@ -61,20 +61,30 @@ export const AddProjectModal: React.FC<AddProjectModalProps> = ({
           groups.add(p.group)
         }
       })
+       
       setAllGroups(Array.from(groups).sort())
     }
     loadGroups()
   }, [])
 
+  // 当 editProject 变化时，同步表单数据
   useEffect(() => {
     if (editProject) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- 从props填充表单数据
       setName(editProject.name)
+       
       setPath(editProject.path)
+       
       setDescription(editProject.description || '')
+       
       setIdeCommand(editProject.ideCommand || 'code .')
+       
       setTags(editProject.tags || [])
+       
       setCustomCommands(editProject.customCommands || [])
+       
       setStartupProfiles(editProject.startupProfiles || [])
+       
       setGroup(editProject.group || '')
 
       // 加载 README
@@ -98,24 +108,9 @@ export const AddProjectModal: React.FC<AddProjectModalProps> = ({
     }
   }, [editProject])
 
-  useEffect(() => {
-    if (!isOpen) {
-      // 重置表单
-      setName('')
-      setPath('')
-      setDescription('')
-      setIdeCommand('code .')
-      setTags([])
-      setTagInput('')
-      setCustomCommands([])
-      setStartupProfiles([])
-      setGroup('')
-      setErrors({})
-      setReadmeContent('')
-      setReadmeFileName('')
-      setShowReadme(true)
-    }
-  }, [isOpen])
+  // 表单数据 - 使用条件渲染替代同步 setState
+  // 当 modal 关闭时，通过条件渲染隐藏，而不是通过 setState 重置
+  // 表单会在下次打开时由 editProject effect 填充数据
 
   // 监听网络状态
   useEffect(() => {

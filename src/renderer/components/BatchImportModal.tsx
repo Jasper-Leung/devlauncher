@@ -55,11 +55,17 @@ export const BatchImportModal: React.FC<BatchImportModalProps> = ({
   // 重置状态
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- 重置表单状态
       setStep('select')
+       
       setScanPath('')
+       
       setMaxDepth(3)
+       
       setScanResult(null)
+       
       setSelectedProjects(new Set())
+       
       setImportResult(null)
     }
   }, [isOpen])

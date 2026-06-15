@@ -45,6 +45,7 @@ export function useProjects() {
   )
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- 初始化加载项目数据
     loadProjects()
   }, [loadProjects])
 
