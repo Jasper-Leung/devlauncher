@@ -21,7 +21,7 @@ interface LazyComponentOptions {
 /**
  * 创建带加载状态的懒加载组件
  */
-/* eslint-disable react-refresh/only-export-components */
+ 
 export function createLazyComponent<T extends ComponentType<unknown>>(
   importFn: () => Promise<{ default: T }>,
   options: LazyComponentOptions = {}

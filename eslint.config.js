@@ -46,7 +46,7 @@ export default [
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': 'warn',
+      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'react/react-in-jsx-scope': 'off',
