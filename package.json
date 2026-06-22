@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
-    "electron": "^40.10.3",
+    "electron": "^40.10.4",
     "i18next": "^26.2.0",
     "node-pty": "^1.1.0",
     "react": "^19.2.7",
