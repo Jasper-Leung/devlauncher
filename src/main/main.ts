@@ -38,8 +38,7 @@ async function createWindow() {
   })
 
   // 检测是否为开发环境
-  const isDev =
-    process.env.NODE_ENV === 'development' || !app.isPackaged || process.env.DEV === 'true'
+  const isDev = process.env.NODE_ENV === 'development' || (!app.isPackaged && process.env.ELECTRON_IS_DEV !== 'false')
 
   // 根据环境加载开发服务器或打包后的 HTML
   if (isDev) {
