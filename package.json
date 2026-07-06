@@ -85,7 +85,7 @@
     "@typescript-eslint/parser": "^8.62.0",
     "@vitejs/plugin-react": "^6.0.2",
     "@vitest/coverage-v8": "^4.1.9",
-    "@vitest/ui": "^4.1.9",
+    "@vitest/ui": "^4.1.10",
     "concurrently": "^10.0.3",
     "copyfiles": "^2.4.1",
     "electron-builder": "^26.15.3",
