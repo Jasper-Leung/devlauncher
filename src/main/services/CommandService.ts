@@ -254,13 +254,8 @@ export class CommandService {
     const ptyOptions: PtyOptions = SecurityValidator.createPtyOptions(workingDir, validatedEnv)
 
     let ptyProcess: pty.IPty | null = null
-    try {
-      const shell = process.platform === 'win32' ? 'cmd.exe' : 'bash'
-      ptyProcess = pty.spawn(shell, [], ptyOptions)
-    } catch (spawnError) {
-      // PTY 进程创建失败，确保状态被重置
-      throw new Error(`无法创建终端进程: ${String(spawnError)}`)
-    }
+    // ptyProcess is stored in activeProcesses
+    ptyProcess = pty.spawn(process.platform === 'win32' ? 'cmd.exe' : 'bash', [], ptyOptions)
 
     // 存储进程引用（包含创建时间）
     this.activeProcesses.set(project.id, {
@@ -339,13 +334,8 @@ export class CommandService {
     const ptyOptions: PtyOptions = SecurityValidator.createPtyOptions(workingDir, validatedEnv)
 
     let ptyProcess: pty.IPty | null = null
-    try {
-      const shell = process.platform === 'win32' ? 'cmd.exe' : 'bash'
-      ptyProcess = pty.spawn(shell, [], ptyOptions)
-    } catch (spawnError) {
-      // PTY 进程创建失败，确保状态被重置
-      throw new Error(`无法创建终端进程: ${String(spawnError)}`)
-    }
+    // ptyProcess is stored in activeProcesses
+    ptyProcess = pty.spawn(process.platform === 'win32' ? 'cmd.exe' : 'bash', [], ptyOptions)
 
     // 存储进程引用（包含创建时间）
     this.activeProcesses.set(project.id, {
@@ -381,6 +371,7 @@ export class CommandService {
     })
 
     // 构建并执行 Docker 命令
+    // dockerCommand is used in ptyProcess.write below
     let dockerCommand = ''
     if (profile.dockerContainer) {
       // 验证容器名称（只允许字母、数字、下划线和连字符）
