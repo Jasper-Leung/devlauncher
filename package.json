@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@eslint-react/eslint-plugin": "^5.14.8",
+    "@eslint-react/eslint-plugin": "^5.17.3",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^26.0.0",
