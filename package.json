@@ -79,7 +79,7 @@
     "@eslint-react/eslint-plugin": "^5.14.8",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@types/uuid": "^11.0.0",
